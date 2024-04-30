@@ -18,6 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('', 'App\Http\Controllers\AppointmentController@getServices')->name('getServices');
-Route::get('', 'App\Http\Controllers\ResourceController@getResources')->name('getResources');
-Route::get('', 'App\Http\Controllers\ServiceController@getAppointments')->name('getAppointments');
+Route::get('/services', 'App\Http\Controllers\ServiceController@getServices')->name('getServices');
+Route::get('/resources', 'App\Http\Controllers\ResourceController@getResources')->name('getResources');
+Route::get('/appointments', 'App\Http\Controllers\AppointmentController@getAppointments')->name('getAppointments');

@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
+    public function getServices(Request $request)
+    {
+        try {
+            $query = DB::table('services');
+            $services = $query->get();
+
+            return response()->json($services)->setStatusCode(200);
+        } catch (Exception $error) {
+            return response()->json($error)->setStatusCode(500);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */

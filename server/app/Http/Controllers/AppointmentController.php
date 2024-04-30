@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
 {
+    public function getAppointments(Request $request)
+    {
+        try {
+            $query = DB::table('appointments');
+            $appointments = $query->get();
+
+            return response()->json($appointments)->setStatusCode(200);
+        } catch (Exception $error) {
+            return response()->json($error)->setStatusCode(500);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */
