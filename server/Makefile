@@ -12,9 +12,9 @@ init:
 	@make clear-cache
 	@make install
 install:
-	$(SAIL) up
-	@#make fresh
+	$(SAIL) up -d
 	composer install
+	make fresh
 up:
 	$(SAIL) up -d
 down:
